@@ -1,0 +1,42 @@
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Hero CSS */
+#hero {
+  background-image: url(../images/phone-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  min-height: 300px;
+}
+
+/* Search Box CSS */
+.search-box {
+  width: 50%;
+}
+
+/* Display Card CSS */
+.card {
+  width: 30%;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .search-box {
+    width: 95%;
+  }
+  .card {
+    width: 100%;
+  }
+}
