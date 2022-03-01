@@ -26,6 +26,11 @@ body {
   width: 50%;
 }
 
+/* Main Content Body CSS */
+main {
+  min-height: calc(100vh - 390px);
+}
+
 /* Phone Details CSS */
 
 .phone-details {
@@ -55,6 +60,9 @@ body {
 
 /* Responsive */
 @media screen and (max-width: 480px) {
+  #hero h1 {
+    font-size: 1.5rem;
+  }
   .search-box {
     width: 95%;
   }
