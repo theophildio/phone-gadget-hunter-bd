@@ -28,6 +28,10 @@ body {
 
 /* Phone Details CSS */
 
+.phone-details {
+  display: none;
+}
+
 .details ul {
   padding-left: 15px;
 }
@@ -35,9 +39,18 @@ body {
   list-style: none;
 }
 
-/* Display Card CSS */
-.show-results .card {
-  width: 31%;
+/* Display All CSS */
+#display-results {
+  display: none;
+}
+
+.load-more {
+  display: none;
+}
+.show-result {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
 }
 
 /* Responsive */
@@ -45,7 +58,9 @@ body {
   .search-box {
     width: 95%;
   }
-  .show-results .card {
-    width: 100%;
+  .show-result {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
   }
 }
