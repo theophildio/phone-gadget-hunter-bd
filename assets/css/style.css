@@ -26,9 +26,18 @@ body {
   width: 50%;
 }
 
+/* Phone Details CSS */
+
+.details ul {
+  padding-left: 15px;
+}
+.details ul li {
+  list-style: none;
+}
+
 /* Display Card CSS */
-.card {
-  width: 30%;
+.show-results .card {
+  width: 31%;
 }
 
 /* Responsive */
@@ -36,7 +45,7 @@ body {
   .search-box {
     width: 95%;
   }
-  .card {
+  .show-results .card {
     width: 100%;
   }
 }
