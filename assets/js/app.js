@@ -29,25 +29,26 @@ const searchPhone = () => {
         displayPhones.textContent = '';
         errorMsg.innerText = 'No phone found';
       } else {
-        getPhones(load.slice(0, 20));
+        getPhones(load);
       }
     });
   }
-  // getPhones(phones.data.slice(0, 20)))
   // Clear search box
   getSearchText.value = '';
   // Clear Phone Details
   const clearPhoneDetails = getId('phone-details');
   clearPhoneDetails.textContent = '';
-};
+}
 
 // Display Results 
-const getPhones = data => {
+const getPhones = phones => {
   const displayPhones = getId('display-results');
   // Clear Previous Data
   displayPhones.textContent = '';
   // Show Data
-  data.forEach(phone => {
+  let allPhones = phones;
+  const show20Phones = phones.slice(0, 20);
+  show20Phones.forEach(phone => {
     // console.log(phone);
     const div = document.createElement('div');
     div.innerHTML = `<div class="card mb-3 shadow-sm">
@@ -65,9 +66,38 @@ const getPhones = data => {
         </div>
       </div>`;
       displayPhones.appendChild(div);
-  });
-};
+  })
+  const allBtn = getId('load-more');
+  allBtn.style.display = 'block';
 
+  getId('load-more').addEventListener('click', function() {
+    const displayPhones = getId('display-results');
+  // Clear Previous Data
+  displayPhones.textContent = '';
+  // Show Data
+  allPhones.forEach(phone => {
+    // console.log(phone);
+    const div = document.createElement('div');
+    div.innerHTML = `<div class="card mb-3 shadow-sm">
+        <div class="row g-0">
+          <div class="col-md-4 p-2">
+            <img src="${phone.image}" class="img-fluid rounded-start" alt="Phone">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">${phone.phone_name}</h5>
+              <p class="card-text"><small>Brand:</small> ${phone.brand}</p>
+              <button onclick="showDetails('${phone.slug}')" class="btn btn-info px-4 text-light text-capitalize shadow-none">details</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+      displayPhones.appendChild(div);
+    });
+    const allBtn = getId('load-more');
+    allBtn.style.display = 'none';
+  })
+}  
  // Get Phone Details Slug
 const showDetails = phoneSlug => {
   const phoneDetailsUrl = `https://openapi.programming-hero.com/api/phone/${phoneSlug}`;
