@@ -32,16 +32,17 @@ main {
 }
 
 /* Phone Details CSS */
-
-.phone-details {
-  display: none;
+.col-md-4 img {
+  width: 100%;
 }
 
 .details ul {
-  padding-left: 15px;
+  padding-left: 20px;
 }
+
 .details ul li {
   list-style: none;
+  margin: 10px 0;
 }
 
 /* Display All CSS */
