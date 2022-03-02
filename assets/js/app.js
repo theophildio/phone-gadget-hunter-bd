@@ -8,16 +8,22 @@ const getId = (id) => {
 const searchPhone = () => {
   const getSearchText = getId('search-text');
   const getSearchValue = getSearchText.value.toLowerCase();
+  const errorMsg = getId('error-msg');
+  if ( getSearchValue === '' || isNaN(getSearchValue) === false ) {
+    errorMsg.innerText = 'Please type valid phone brand name.';
+  } else {
+    errorMsg.innerText = '';
+    // Create url
+    const url = `https://openapi.programming-hero.com/api/phones?search=${getSearchValue}`;
+    fetch(url)
+    .then(response => response.json())
+    .then(phones => getPhones(phones.data.slice(0, 20)))
+  }
   // Clear search box
   getSearchText.value = '';
   // Clear Phone Details
   const clearPhoneDetails = getId('phone-details');
   clearPhoneDetails.textContent = '';
-  // Create url
-  const url = `https://openapi.programming-hero.com/api/phones?search=${getSearchValue}`;
-  fetch(url)
-  .then(response => response.json())
-  .then(phones => getPhones(phones.data.slice(0, 20)))
 };
 
 // Display Results 
@@ -47,14 +53,18 @@ const getPhones = data => {
   });
 };
 
-// Get Phone Details Slug
+ // Get Phone Details Slug
 const showDetails = phoneSlug => {
   const phoneDetailsUrl = `https://openapi.programming-hero.com/api/phone/${phoneSlug}`;
   fetch(phoneDetailsUrl)
   .then(response => response.json())
   .then(slugs => getPhoneDetails(slugs.data))
 };
-
+const close = () => {
+  const closeDetails = getId('phone-details');
+  closeDetails.style.display = 'none';
+  return closeDetails;
+}
  // Show Phone Details 
 const getPhoneDetails = details => {
   // console.log(details);
@@ -106,3 +116,4 @@ const getPhoneDetails = details => {
   </div>`;
   showPhoneDetails.appendChild(div);
 };
+

@@ -7,8 +7,6 @@
   <title>Phone Gadget Hunter BD</title>
   <!-- Bootstrap 5 CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <!-- Magnific Popup -->
-  <link rel="stylesheet" href="assets/css/magnific-popup.css">
   <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -20,6 +18,9 @@
       <input id="search-text" type="text" class="form-control shadow-none" placeholder="Search your phone">
       <button onclick="searchPhone()" class="btn btn-info text-light shadow-none" type="button">Search</button>
     </div>
+    <div class="error mt-4">
+      <h5 id="error-msg" class="text-danger fw-bold text-capitalize"></h5>
+    </div>
   </header>
   <!-- Search Results Here -->
   <main>
@@ -28,7 +29,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <div id="phone-details" class="phone-details">
+            <div id="phone-details">
 
             </div>
           </div>
@@ -41,10 +42,11 @@
         <div class="row">
           <div class="col-lg-12">
             <div id="display-results" class="show-result">
-              <div class="load-more text-center my-4">
-                <button onclick="searchAllPhone()" class="btn btn-info px-4 text-light text-capitalize">Load more</button>
-              </div>
+              
             </div>
+          </div>
+          <div class="d-flex justify-content-center my-4">
+            <button id="load-more" onclick="searchAllPhone()" class="btn btn-info px-4 text-light text-capitalize">Load more</button>
           </div>
         </div>
       </div>
@@ -55,10 +57,7 @@
     <p class="m-0 text-capitalize text-info">phone gadget hunter BD</p>
     <p class="m-0 text-light text-capitalize"> <small> &copy; all rights reserved by theophil dio</small></p>
   </footer>
-  <!-- jQuery 1.12.4 -->
-  <script src="assets/js/jquery-1.12.4.min.js"></script>
-  <!-- Magnific JS -->
-  <script src="assets/js/jquery.magnific-popup.min.js"></script>
+  
   <!-- Bootstrap 5 JS -->
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <!-- Main JS -->
