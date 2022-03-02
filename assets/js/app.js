@@ -23,7 +23,7 @@ const searchPhone = () => {
       const allPhones = phones.data;
       const load = allPhones.filter((phoneName) => {
         return phoneName.phone_name.toLowerCase().includes([])
-      })
+      });
       if (load == '') {
         const displayPhones = getId('display-results');
         displayPhones.textContent = '';
@@ -32,13 +32,13 @@ const searchPhone = () => {
         getPhones(load);
       }
     });
-  }
+  };
   // Clear search box
   getSearchText.value = '';
   // Clear Phone Details
   const clearPhoneDetails = getId('phone-details');
   clearPhoneDetails.textContent = '';
-}
+};
 
 // Display Results 
 const getPhones = phones => {
@@ -66,7 +66,7 @@ const getPhones = phones => {
         </div>
       </div>`;
       displayPhones.appendChild(div);
-  })
+  });
   const allBtn = getId('load-more');
   allBtn.style.display = 'block';
 
@@ -96,8 +96,8 @@ const getPhones = phones => {
     });
     const allBtn = getId('load-more');
     allBtn.style.display = 'none';
-  })
-}  
+  });
+};  
  // Get Phone Details Slug
 const showDetails = phoneSlug => {
   const phoneDetailsUrl = `https://openapi.programming-hero.com/api/phone/${phoneSlug}`;
@@ -109,7 +109,7 @@ const close = () => {
   const closeDetails = getId('phone-details');
   closeDetails.style.display = 'none';
   return closeDetails;
-}
+};
  // Show Phone Details 
 const getPhoneDetails = details => {
   // console.log(details);
