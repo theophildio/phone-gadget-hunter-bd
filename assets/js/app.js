@@ -1,9 +1,18 @@
+// Common Function 
+const getId = (id) => {
+  const callId = document.getElementById(id);
+  return callId;
+};
+
 // Search Phones
 const searchPhone = () => {
-  const getSearchText = document.getElementById('search-text');
+  const getSearchText = getId('search-text');
   const getSearchValue = getSearchText.value.toLowerCase();
   // Clear search box
   getSearchText.value = '';
+  // Clear Phone Details
+  const clearPhoneDetails = getId('phone-details');
+  clearPhoneDetails.textContent = '';
   // Create url
   const url = `https://openapi.programming-hero.com/api/phones?search=${getSearchValue}`;
   fetch(url)
@@ -13,7 +22,7 @@ const searchPhone = () => {
 
 // Display Results 
 const getPhones = data => {
-  const displayPhones = document.getElementById('display-results');
+  const displayPhones = getId('display-results');
   // Clear Previous Data
   displayPhones.textContent = '';
   // Show Data
@@ -48,8 +57,8 @@ const showDetails = phoneSlug => {
 
  // Show Phone Details 
 const getPhoneDetails = details => {
-  console.log(details);
-  const showPhoneDetails = document.getElementById('phone-details');
+  // console.log(details);
+  const showPhoneDetails = getId('phone-details');
   showPhoneDetails.textContent = '';
   const div = document.createElement('div');
   div.innerHTML = `<div class="card mb-3 p-2 shadow-sm">
@@ -61,7 +70,7 @@ const getPhoneDetails = details => {
         <div class="card-body">
           <h5 class="card-title">${details.name}</h5>
           <p class="card-text"><small>Brand:</small> ${details.brand}</p>
-          <p class="card-text"><small>${details.releaseDate}</small></p>
+          <p class="card-text"><small>${details.releaseDate ? details.releaseDate : ''}</small></p>
           <div class="phone-specification">
             <h5 class="card-title">Main Specification</h5>
             <div class="details">
@@ -76,17 +85,19 @@ const getPhoneDetails = details => {
             <div class="details">
               <ul>
                 <li>Sensors: <small>${details.mainFeatures.sensors}</small></li>
-              </ul>
-            <h5 class="card-title">Other Specification</h5>
-            <div class="details">
-              <ul>
-                <li>WLAN: <small>${details.others.WLAN}</small></li>
-                <li>Bluetooth: <small>${details.others.Bluetooth}</small></li>
-                <li>GPS: <small>${details.others.GPS}</small></li>
-                <li>NFC: <small>${details.others.NFC}</small></li>
-                <li>Radio: <small>${details.others.Radio}</small></li>
-                <li>USB: <small>${details.others.USB}</small></li>
-              </ul>
+              </ul> 
+            <div>
+              <h5 class="card-title">Other Specification</h5>
+              <div class="details">
+                <ul>
+                  <li>WLAN: <small>${details.others ? details.others.WLAN : 'N/A'}</small></li>
+                  <li>Bluetooth: <small>${details.others ? details.others.Bluetooth : 'N/A'}</small></li>
+                  <li>GPS: <small>${details.others ? details.others.GPS : 'N/A'}</small></li>
+                  <li>NFC: <small>${details.others ? details.others.NFC : 'N/A'}</small></li>
+                  <li>Radio: <small>${details.others ? details.others.Radio : 'N/A'}</small></li>
+                  <li>USB: <small>${details.others ? details.others.USB : 'N/A'}</small></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
