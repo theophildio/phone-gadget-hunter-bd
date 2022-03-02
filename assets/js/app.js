@@ -10,6 +10,8 @@ const searchPhone = () => {
   const getSearchValue = getSearchText.value.toLowerCase();
   const errorMsg = getId('error-msg');
   if ( getSearchValue === '' || isNaN(getSearchValue) === false ) {
+    const displayPhones = getId('display-results');
+    displayPhones.textContent = '';
     errorMsg.innerText = 'Please type valid phone brand name.';
   } else {
     errorMsg.innerText = '';
@@ -17,8 +19,21 @@ const searchPhone = () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${getSearchValue}`;
     fetch(url)
     .then(response => response.json())
-    .then(phones => getPhones(phones.data.slice(0, 20)))
+    .then(phones => {
+      const allPhones = phones.data;
+      const load = allPhones.filter((phoneName) => {
+        return phoneName.phone_name.toLowerCase().includes([])
+      })
+      if (load == '') {
+        const displayPhones = getId('display-results');
+        displayPhones.textContent = '';
+        errorMsg.innerText = 'No phone found';
+      } else {
+        getPhones(load.slice(0, 20));
+      }
+    });
   }
+  // getPhones(phones.data.slice(0, 20)))
   // Clear search box
   getSearchText.value = '';
   // Clear Phone Details
