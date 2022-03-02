@@ -45,9 +45,6 @@ main {
 }
 
 /* Display All CSS */
-#display-results {
-  display: none;
-}
 
 .load-more {
   display: none;

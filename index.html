@@ -16,7 +16,7 @@
     <h1 class="text-info text-capitalize bg-white p-3 rounded-3 shadow-lg fw-bold">phone gadget hunter <span class="text-success text-uppercase">bd</span></h1>
     <div class="input-group mt-5 search-box">
       <input id="search-text" type="text" class="form-control shadow-none" placeholder="Search your phone">
-      <button onclick="searchPhone()" id="search-btn" class="btn btn-info text-light shadow-none" type="button">Search</button>
+      <button onclick="search20Phone()" class="btn btn-info text-light shadow-none" type="button">Search</button>
     </div>
   </header>
   <!-- Search Results Here -->
@@ -65,51 +65,9 @@
         <div class="row">
           <div class="col-lg-12">
             <div id="display-results" class="show-result">
-              <div class="card mb-3">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="assets/images/phone-bg.jpg" class="img-fluid rounded-start" alt="Phone">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Phone Model</h5>
-                      <p class="card-text">Brand Name</p>
-                      <button class="btn btn-info px-4 text-light text-capitalize">details</button>
-                    </div>
-                  </div>
-                </div>
+              <div class="load-more text-center my-4">
+                <button onclick="searchAllPhone()" class="btn btn-info px-4 text-light text-capitalize">Load more</button>
               </div>
-              <div class="card mb-3">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="assets/images/phone-bg.jpg" class="img-fluid rounded-start" alt="Phone">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Phone Model</h5>
-                      <p class="card-text">Brand Name</p>
-                      <button class="btn btn-info px-4 text-light text-capitalize">details</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="assets/images/phone-bg.jpg" class="img-fluid rounded-start" alt="Phone">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Phone Model</h5>
-                      <p class="card-text">Brand Name</p>
-                      <button class="btn btn-info px-4 text-light text-capitalize">details</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="load-more text-center my-4">
-              <button class="btn btn-info px-4 text-light text-capitalize">Load more</button>
             </div>
           </div>
         </div>
