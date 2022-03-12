@@ -45,6 +45,19 @@ main {
   margin: 10px 0;
 }
 
+#phone-details {
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  top: 5px;
+  transform: translate(-50%, 0);
+}
+
+#details-close {
+  position: absolute;
+  top: 2%;
+  right: 5%;
+}
 /* Display All CSS */
 
 #load-more {
