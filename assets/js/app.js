@@ -97,8 +97,9 @@ const getPhones = phones => {
     const allBtn = getId('load-more');
     allBtn.style.display = 'none';
   });
-};  
- // Get Phone Details Slug
+}; 
+ 
+// Get Phone Details Slug
 const showDetails = phoneSlug => {
   const phoneDetailsUrl = `https://openapi.programming-hero.com/api/phone/${phoneSlug}`;
   fetch(phoneDetailsUrl)
@@ -110,7 +111,8 @@ const close = () => {
   closeDetails.style.display = 'none';
   return closeDetails;
 };
- // Show Phone Details 
+
+// Show Phone Details 
 const getPhoneDetails = details => {
   const detailsClose = getId('phone-details');
   detailsClose.style.display = 'block';
