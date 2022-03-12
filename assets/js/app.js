@@ -164,7 +164,7 @@ const getPhoneDetails = details => {
   showPhoneDetails.appendChild(div);
 };
 
-// Close phone details pop up
+// Close the phone details pop up
 const detailsClose = () => {
   const detailsClose = getId('phone-details');
   detailsClose.style.display = 'none';
