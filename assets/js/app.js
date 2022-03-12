@@ -125,7 +125,7 @@ const getPhoneDetails = details => {
         <div class="card-body">
           <h5 class="card-title">${details.name}</h5>
           <p class="card-text"><small>Brand:</small> ${details.brand}</p>
-          <p class="card-text"><small>${details.releaseDate ? details.releaseDate : ''}</small></p>
+          <p class="card-text"><small>${details.releaseDate ? details.releaseDate : 'No date found'}</small></p>
           <div class="phone-specification">
             <h5 class="card-title">Main Specification</h5>
             <div class="details">
