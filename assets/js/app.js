@@ -13,6 +13,8 @@ const searchPhone = () => {
     const displayPhones = getId('display-results');
     displayPhones.textContent = '';
     errorMsg.innerText = 'Please type valid phone brand name.';
+    const allBtn = getId('load-more');
+    allBtn.style.display = 'none';
   } else {
     errorMsg.innerText = '';
     // Create url
@@ -28,6 +30,8 @@ const searchPhone = () => {
         const displayPhones = getId('display-results');
         displayPhones.textContent = '';
         errorMsg.innerText = 'No phone found';
+        const allBtn = getId('load-more');
+        allBtn.style.display = 'none';
       } else {
         getPhones(load);
       }
@@ -95,7 +99,7 @@ const getPhones = phones => {
       </div>`;
       displayPhones.appendChild(div);
     });
-    
+
     const allBtn = getId('load-more');
     allBtn.style.display = 'none';
   });
