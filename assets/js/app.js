@@ -67,6 +67,7 @@ const getPhones = phones => {
       </div>`;
       displayPhones.appendChild(div);
   });
+
   const allBtn = getId('load-more');
   allBtn.style.display = 'block';
 
@@ -94,11 +95,12 @@ const getPhones = phones => {
       </div>`;
       displayPhones.appendChild(div);
     });
+    
     const allBtn = getId('load-more');
     allBtn.style.display = 'none';
   });
 }; 
- 
+
 // Get Phone Details Slug
 const showDetails = phoneSlug => {
   const phoneDetailsUrl = `https://openapi.programming-hero.com/api/phone/${phoneSlug}`;
